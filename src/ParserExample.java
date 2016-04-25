@@ -1,8 +1,5 @@
 
-/* Location:           /media/Dados/Codigos/C_Plus/Projetos/eclipse-cdt-standalone-astparser/bin/
- * Qualified Name:     ParserExample
- * JD-Core Version:    0.6.0
- */
+
 
 import java.io.PrintStream;
 import java.util.HashMap;
@@ -138,11 +135,11 @@ public class ParserExample
          logger.info("declaration - " + declaration.getRawSignature());
          // Push Information to Map
          MockFunction.put("declaration", declaration.getRawSignature());
-         MockFunction.put("FileLocation", declaration.getFileLocation().getFileName());
-         MockFunction.put("Offset", String.valueOf(declaration.getFileLocation().getNodeOffset()));
-         MockFunction.put("Length", String.valueOf(declaration.getFileLocation().getNodeLength()));
-         MockFunction.put("StartingLine", String.valueOf(declaration.getFileLocation().getStartingLineNumber()));
-         MockFunction.put("EndingLine", String.valueOf(declaration.getFileLocation().getEndingLineNumber()));
+         MockFunction.put("File.Location", declaration.getFileLocation().getFileName());
+         MockFunction.put("File.Offset", String.valueOf(declaration.getFileLocation().getNodeOffset()));
+         MockFunction.put("File.Length", String.valueOf(declaration.getFileLocation().getNodeLength()));
+         MockFunction.put("File.StartingLine", String.valueOf(declaration.getFileLocation().getStartingLineNumber()));
+         MockFunction.put("File.EndingLine", String.valueOf(declaration.getFileLocation().getEndingLineNumber()));
          
 	   logger.info("declaration: " + declaration + " ->  " + declaration.getRawSignature());
 	   logger.info("-- Parent: " + declaration.getParent().getClass().getSimpleName());
@@ -157,16 +154,20 @@ public class ParserExample
 			   for(IASTNode subnode : node.getChildren()) {
 				   if(subnode instanceof CASTName) {
 					   logger.info("-- CASTName: " + subnode.getRawSignature());
-		   // Push 
-		   FunctionCASTName = subnode.getRawSignature();
-		   MockFunction.put("CASTName", subnode.getRawSignature());        				   
+					   // Push 
+					   FunctionCASTName = subnode.getRawSignature();
+					   MockFunction.put("CASTName", subnode.getRawSignature());					   
+					   for (IASTPreprocessorStatement preprocessor : preprocessors) {
+						   //search for Mocks defines
+						   if(preprocessor.getRawSignature().contains("#ifndef " + FunctionCASTName + "_MOCK")){
+							   logger.info("preprocessor - " + preprocessor.getRawSignature());
+							   MockFunction.put("preprocessor", preprocessor.getRawSignature());
+						   }
+					   }
 				   }
 			   }
 		   }
-	   }
-
-            }           
-      }     
+	   }     
      
      //printTree(translationUnit, 1);
 
