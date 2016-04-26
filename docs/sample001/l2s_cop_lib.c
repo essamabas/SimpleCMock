@@ -272,6 +272,7 @@ static unsigned short crc16table[256] = /* CRC lookup table polynomial 0xA001 */
   \return none
 
 *******************************************************************************/
+
 #ifndef l2s_calc_crc8_MOCK
 GT_U8 l2s_calc_crc8(GT_U8* start, GT_U32 size)
 {
@@ -288,7 +289,8 @@ GT_U8 l2s_calc_crc8(GT_U8* start, GT_U32 size)
 
     return crc;
 }
-#endif
+#endif 
+
 
 /***************************************************************************//**
   \brief  <b>crc16 checksum algorithm</b>
@@ -318,6 +320,8 @@ GT_U8 l2s_calc_crc8(GT_U8* start, GT_U32 size)
   \return none
 
 *******************************************************************************/
+
+#ifndef l2s_calc_crc16_MOCK
 GT_U16 l2s_calc_crc16(GT_U8* start, GT_U32 size)
 {
     GT_U32 i;
@@ -335,6 +339,8 @@ GT_U16 l2s_calc_crc16(GT_U8* start, GT_U32 size)
 
     return crc;
 }
+#endif 
+
 
 
 /***************************************************************************//** 
@@ -356,6 +362,8 @@ GT_U16 l2s_calc_crc16(GT_U8* start, GT_U32 size)
     \return Output value
 
 *******************************************************************************/
+
+#ifndef l2s_lib_abs_s16_sat_MOCK
 GT_S16 l2s_lib_abs_s16_sat(GT_S16 in_value_abs_sat)
 {
     /* Define local variables */
@@ -385,6 +393,8 @@ GT_S16 l2s_lib_abs_s16_sat(GT_S16 in_value_abs_sat)
     /* Return output value */
     return(out_value_abs_sat);
 }
+#endif 
+
 
 
 /***************************************************************************//** 
@@ -406,6 +416,8 @@ GT_S16 l2s_lib_abs_s16_sat(GT_S16 in_value_abs_sat)
     \return Output value
 
 *******************************************************************************/
+
+#ifndef l2s_lib_s16_sat_MOCK
 GT_S16 l2s_lib_s16_sat(GT_S32 in_value)
 {
     /* Define local variables */
@@ -435,6 +447,8 @@ GT_S16 l2s_lib_s16_sat(GT_S32 in_value)
     /* Return output value */
     return(out_value_sat);
 }
+#endif 
+
 
 /***************************************************************************//** 
   \brief  <b>16 bit signed addition with upper and lower saturation</b>
@@ -456,6 +470,8 @@ GT_S16 l2s_lib_s16_sat(GT_S32 in_value)
     \return Saturated result value
 
 *******************************************************************************/
+
+#ifndef l2s_lib_s16_add_s16_s16_sat_MOCK
 GT_S16 l2s_lib_s16_add_s16_s16_sat(GT_S16 in_value1, GT_S16 in_value2)
 {
     /* Define local variables \n\n*/
@@ -490,6 +506,8 @@ GT_S16 l2s_lib_s16_add_s16_s16_sat(GT_S16 in_value1, GT_S16 in_value2)
     /* Return result */
     return(ret_value);
 }
+#endif 
+
 
 /***************************************************************************//** 
   \brief  <b>32 bit signed addition with upper and lower saturation</b>
@@ -511,6 +529,8 @@ GT_S16 l2s_lib_s16_add_s16_s16_sat(GT_S16 in_value1, GT_S16 in_value2)
     \return Saturated result value
 
 *******************************************************************************/
+
+#ifndef l2s_lib_s32_add_s32_s32_sat_MOCK
 GT_S32 l2s_lib_s32_add_s32_s32_sat(GT_S32 in_value1, GT_S32 in_value2)
 {
     /* Define local variables \n\n*/
@@ -545,6 +565,8 @@ GT_S32 l2s_lib_s32_add_s32_s32_sat(GT_S32 in_value1, GT_S32 in_value2)
     /* Return result */
     return(ret_value);
 }
+#endif 
+
 
 /***************************************************************************//** 
   \brief  <b>16 bit signed subtraction with upper and lower saturation</b>
@@ -566,6 +588,8 @@ GT_S32 l2s_lib_s32_add_s32_s32_sat(GT_S32 in_value1, GT_S32 in_value2)
     \return Saturated result value
 
 *******************************************************************************/
+
+#ifndef l2s_lib_s16_sub_s16_s16_sat_MOCK
 GT_S16 l2s_lib_s16_sub_s16_s16_sat(GT_S16 in_value1, GT_S16 in_value2)
 {
     /* Define local variables \n\n*/
@@ -600,6 +624,8 @@ GT_S16 l2s_lib_s16_sub_s16_s16_sat(GT_S16 in_value1, GT_S16 in_value2)
     /* Return result */
     return(ret_value);
 }
+#endif 
+
 
 /***************************************************************************//** 
   \brief  <b>16 bit unsigned addition with saturation</b>                   
@@ -621,6 +647,8 @@ GT_S16 l2s_lib_s16_sub_s16_s16_sat(GT_S16 in_value1, GT_S16 in_value2)
     \return Saturated result value
 
 *******************************************************************************/
+
+#ifndef l2s_lib_u16_add_u16_u16_sat_MOCK
 GT_U16 l2s_lib_u16_add_u16_u16_sat(GT_U16 in_value1, GT_U16 in_value2)
 {
     /* Define local variables \n\n*/
@@ -640,6 +668,8 @@ GT_U16 l2s_lib_u16_add_u16_u16_sat(GT_U16 in_value1, GT_U16 in_value2)
     /* Return result */
     return(tmp_result);
 }
+#endif 
+
 
 /***************************************************************************//** 
   \brief  <b>16 bit unsigned subtraction with saturation</b>                   
@@ -661,6 +691,8 @@ GT_U16 l2s_lib_u16_add_u16_u16_sat(GT_U16 in_value1, GT_U16 in_value2)
       \return Saturated result value
 
 *******************************************************************************/
+
+#ifndef l2s_lib_u16_sub_u16_u16_sat_MOCK
 GT_U16 l2s_lib_u16_sub_u16_u16_sat(GT_U16 in_value1, GT_U16 in_value2)
 {
     /* Define local variables \n\n*/
@@ -680,6 +712,8 @@ GT_U16 l2s_lib_u16_sub_u16_u16_sat(GT_U16 in_value1, GT_U16 in_value2)
     /* Return result */
     return(tmp_result);
 }
+#endif 
+
 
 /***************************************************************************//**
   
@@ -701,6 +735,8 @@ GT_U16 l2s_lib_u16_sub_u16_u16_sat(GT_U16 in_value1, GT_U16 in_value2)
   \return result of z/n [U32]
   
 *******************************************************************************/
+
+#ifndef l2s_lib_div_u32u32_MOCK
 GT_U32 l2s_lib_div_u32u32(GT_U32 z, GT_U32 n)
 {
     /* Define local variables \n\n*/
@@ -728,6 +764,8 @@ GT_U32 l2s_lib_div_u32u32(GT_U32 z, GT_U32 n)
     /* Return result*/
     return(result);
 }
+#endif 
+
 
 /***************************************************************************//**
   
@@ -750,6 +788,8 @@ GT_U32 l2s_lib_div_u32u32(GT_U32 z, GT_U32 n)
   \return result of z/n [S32]
   
 *******************************************************************************/
+
+#ifndef l2s_lib_div_s32s32_MOCK
 GT_S32 l2s_lib_div_s32s32(GT_S32 z, GT_S32 n)
 {
   GT_S32 result;
@@ -789,6 +829,8 @@ GT_S32 l2s_lib_div_s32s32(GT_S32 z, GT_S32 n)
   }
   return result;
 }
+#endif 
+
 
 
 /***************************************************************************//**
@@ -811,6 +853,8 @@ GT_S32 l2s_lib_div_s32s32(GT_S32 z, GT_S32 n)
     \return Output value               [s32]  
   
 *******************************************************************************/
+
+#ifndef l2s_abs_s32_MOCK
 GT_S32 l2s_abs_s32(GT_S32 i)
 {
     GT_S32 res;
@@ -826,6 +870,8 @@ GT_S32 l2s_abs_s32(GT_S32 i)
 
     return res;
 }
+#endif 
+
 
 /***************************************************************************//** 
   \brief  <b>Index search routine</b>
@@ -857,6 +903,8 @@ none
   
 
 *******************************************************************************/
+
+#ifndef l2s_lib_idx_brkpt_srch_MOCK
 GT_U8 l2s_lib_idx_brkpt_srch(const volatile GT_S16 *x_list, GT_S8 nr, GT_S16 x_in)
 {
   /*define locals*/
@@ -898,6 +946,8 @@ GT_U8 l2s_lib_idx_brkpt_srch(const volatile GT_S16 *x_list, GT_S8 nr, GT_S16 x_i
   /*return index*/
   return(tmp_brkpt);
 }
+#endif 
+
 
 
 
@@ -956,6 +1006,8 @@ GT_U8 l2s_lib_idx_brkpt_srch(const volatile GT_S16 *x_list, GT_S8 nr, GT_S16 x_i
           .ival_ratio ->  interval ratio [S16 | En14 | - ]
           
 *******************************************************************************/
+
+#ifndef l2s_lib_ipol_brkpt_srch_MOCK
 l2s_lib_ipol_brkpt_type l2s_lib_ipol_brkpt_srch(const volatile GT_S16 *x_list, GT_S8 nr, GT_S16 x_in)
 {
   /*define locals*/
@@ -1028,6 +1080,8 @@ l2s_lib_ipol_brkpt_type l2s_lib_ipol_brkpt_srch(const volatile GT_S16 *x_list, G
 
   return result;    
 }
+#endif 
+
 
 
 
@@ -1099,6 +1153,8 @@ l2s_lib_ipol_brkpt_type l2s_lib_ipol_brkpt_srch(const volatile GT_S16 *x_list, G
   \return y         -> the interpolated value [S16 | - | - ]
 
 *******************************************************************************/
+
+#ifndef l2s_lib_ipol_dim2_S16_S16_MOCK
 GT_S16 l2s_lib_ipol_dim2_S16_S16(l2s_lib_ipol_dim2_type *ptr_dim2, GT_S16 x_in)
 {
     /*define locals*/
@@ -1132,6 +1188,8 @@ GT_S16 l2s_lib_ipol_dim2_S16_S16(l2s_lib_ipol_dim2_type *ptr_dim2, GT_S16 x_in)
     return y ;
     
 }
+#endif 
+
 
 
 
@@ -1172,6 +1230,8 @@ GT_S16 l2s_lib_ipol_dim2_S16_S16(l2s_lib_ipol_dim2_type *ptr_dim2, GT_S16 x_in)
   \return  result       ->  filtered input [S16 | - | - ]
 
 *******************************************************************************/
+
+#ifndef l2s_lib_rolav_S16_S16_MOCK
 GT_S16 l2s_lib_rolav_S16_S16(GT_S16 input, GT_S16 old_result, GT_S16 filt_coef)
 {
     /*define locals*/
@@ -1206,6 +1266,8 @@ GT_S16 l2s_lib_rolav_S16_S16(GT_S16 input, GT_S16 old_result, GT_S16 filt_coef)
     
   return(result);    
 }
+#endif 
+
 
 /***************************************************************************//**
   \brief  <b>Fixed point multiplication with saturation</b>
@@ -1227,6 +1289,8 @@ GT_S16 l2s_lib_rolav_S16_S16(GT_S16 input, GT_S16 old_result, GT_S16 filt_coef)
       \return Saturated result value [S16 | En4 | n/a]
 
 *******************************************************************************/
+
+#ifndef l2s_lib_mul_s16_s16_sr13_sat_MOCK
 GT_S16 l2s_lib_mul_s16_s16_sr13_sat(GT_S16 in_value1, GT_S16 in_value2)
 {
   /* Define local variables \n\n*/
@@ -1266,6 +1330,8 @@ GT_S16 l2s_lib_mul_s16_s16_sr13_sat(GT_S16 in_value1, GT_S16 in_value2)
   /* Return result */
   return (tmp_return_val);
 }
+#endif 
+
 
 /***************************************************************************//**
   \brief  <b>S16 max(S16, S16)</b>
@@ -1283,10 +1349,14 @@ GT_S16 l2s_lib_mul_s16_s16_sr13_sat(GT_S16 in_value1, GT_S16 in_value2)
       \return result value                            [S16 | n/a | n/a]
 
 *******************************************************************************/
+
+#ifndef l2s_lib_maxS16S16S16_MOCK
 GT_S16 l2s_lib_maxS16S16S16(GT_S16 a, GT_S16 b)
 {
 	return a > b ? a : b;
 }
+#endif 
+
 
 
 

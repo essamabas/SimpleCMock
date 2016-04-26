@@ -16,10 +16,13 @@ import org.eclipse.cdt.core.parser.IncludeFileContentProvider;
 import org.eclipse.cdt.core.parser.ScannerInfo;
 import org.eclipse.core.runtime.CoreException;
 
+import com.github.uchan_nos.c_helper.analysis.FileInfo;
+import com.github.uchan_nos.c_helper.analysis.MyFileContentProvider;
+
 
 /**
  * C language parser.
- * @author uchan
+ * @author Essam Abas
  */
 public class Parser {
 	

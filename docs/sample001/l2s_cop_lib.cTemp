@@ -1,0 +1,1788 @@
+
+
+
+
+
+
+
+        
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+a > b ? a : b;
+}
+
+
+
+
+
+
+        
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+t Functionality</b>                                                             \n
+     return maximum of two S16
+
+  <b>Control Flow:</b>
+
+  <b>Calibration Parameters:</b>                                                             \n
+    - none                                                                                   \n
+
+      \param  in_value1            First input value  [S16 | n/a | n/a]
+      \param  in_value2            Second input value [S16 | n/a | n/a]
+      \return result value                            [S16 | n/a | n/a]
+
+*******************************************************************************/
+GT_S16 l2s_lib_maxS16S16S16(GT_S16 a, GT_S16 b)
+{
+	return a > b ? a : b;
+}
+
+
+
+
+
+
+        
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  }
+
+  /* Return result */
+  return (tmp_return_val);
+}
+
+/***************************************************************************//**
+  \brief  <b>S16 max(S16, S16)</b>
+
+  <b>Component Functionality</b>                                                             \n
+     return maximum of two S16
+
+  <b>Control Flow:</b>
+
+  <b>Calibration Parameters:</b>                                                             \n
+    - none                                                                                   \n
+
+      \param  in_value1            First input value  [S16 | n/a | n/a]
+      \param  in_value2            Second input value [S16 | n/a | n/a]
+      \return result value                            [S16 | n/a | n/a]
+
+*******************************************************************************/
+GT_S16 l2s_lib_maxS16S16S16(GT_S16 a, GT_S16 b)
+{
+	return a > b ? a : b;
+}
+
+
+
+
+
+
+        
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /* Cast calculated product
+         to S16 data type */
+      tmp_return_val = (GT_S16)tmp_prod;
+    }
+  }
+
+  /* Return result */
+  return (tmp_return_val);
+}
+
+/***************************************************************************//**
+  \brief  <b>S16 max(S16, S16)</b>
+
+  <b>Component Functionality</b>                                                             \n
+     return maximum of two S16
+
+  <b>Control Flow:</b>
+
+  <b>Calibration Parameters:</b>                                                             \n
+    - none                                                                                   \n
+
+      \param  in_value1            First input value  [S16 | n/a | n/a]
+      \param  in_value2            Second input value [S16 | n/a | n/a]
+      \return result value                            [S16 | n/a | n/a]
+
+*******************************************************************************/
+GT_S16 l2s_lib_maxS16S16S16(GT_S16 a, GT_S16 b)
+{
+	return a > b ? a : b;
+}
+
+
+
+
+
+
+        
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  }
+  else
+  {
+    /* Calculated product <=
+       S16 data type minimum? */
+    if ( tmp_prod <= ((GT_S32)GT_S16_MIN) )
+    {
+      /* Set output to data type S16 minimum */
+      tmp_return_val = (GT_S16)GT_S16_MIN;
+    }
+    else
+    {
+      /* Cast calculated product
+         to S16 data type */
+      tmp_return_val = (GT_S16)tmp_prod;
+    }
+  }
+
+  /* Return result */
+  return (tmp_return_val);
+}
+
+/***************************************************************************//**
+  \brief  <b>S16 max(S16, S16)</b>
+
+  <b>Component Functionality</b>                                                             \n
+     return maximum of two S16
+
+  <b>Control Flow:</b>
+
+  <b>Calibration Parameters:</b>                                                             \n
+    - none                                                                                   \n
+
+      \param  in_value1            First input value  [S16 | n/a | n/a]
+      \param  in_value2            Second input value [S16 | n/a | n/a]
+      \return result value                            [S16 | n/a | n/a]
+
+*******************************************************************************/
+GT_S16 l2s_lib_maxS16S16S16(GT_S16 a, GT_S16 b)
+{
+	return a > b ? a : b;
+}
+
+
+
+
+
+
+        
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+S32)GT_S16_MIN) )
+    {
+      /* Set output to data type S16 minimum */
+      tmp_return_val = (GT_S16)GT_S16_MIN;
+    }
+    else
+    {
+      /* Cast calculated product
+         to S16 data type */
+      tmp_return_val = (GT_S16)tmp_prod;
+    }
+  }
+
+  /* Return result */
+  return (tmp_return_val);
+}
+
+/***************************************************************************//**
+  \brief  <b>S16 max(S16, S16)</b>
+
+  <b>Component Functionality</b>                                                             \n
+     return maximum of two S16
+
+  <b>Control Flow:</b>
+
+  <b>Calibration Parameters:</b>                                                             \n
+    - none                                                                                   \n
+
+      \param  in_value1            First input value  [S16 | n/a | n/a]
+      \param  in_value2            Second input value [S16 | n/a | n/a]
+      \return result value                            [S16 | n/a | n/a]
+
+*******************************************************************************/
+GT_S16 l2s_lib_maxS16S16S16(GT_S16 a, GT_S16 b)
+{
+	return a > b ? a : b;
+}
+
+
+
+
+
+
+        
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+d > GT_S16_MAX)
+  {
+    /* Set output to S16 data type maximum */
+    tmp_return_val = (GT_S16)GT_S16_MAX;
+  }
+  else
+  {
+    /* Calculated product <=
+       S16 data type minimum? */
+    if ( tmp_prod <= ((GT_S32)GT_S16_MIN) )
+    {
+      /* Set output to data type S16 minimum */
+      tmp_return_val = (GT_S16)GT_S16_MIN;
+    }
+    else
+    {
+      /* Cast calculated product
+         to S16 data type */
+      tmp_return_val = (GT_S16)tmp_prod;
+    }
+  }
+
+  /* Return result */
+  return (tmp_return_val);
+}
+
+/***************************************************************************//**
+  \brief  <b>S16 max(S16, S16)</b>
+
+  <b>Component Functionality</b>                                                             \n
+     return maximum of two S16
+
+  <b>Control Flow:</b>
+
+  <b>Calibration Parameters:</b>                                                             \n
+    - none                                                                                   \n
+
+      \param  in_value1            First input value  [S16 | n/a | n/a]
+      \param  in_value2            Second input value [S16 | n/a | n/a]
+      \return result value                            [S16 | n/a | n/a]
+
+*******************************************************************************/
+GT_S16 l2s_lib_maxS16S16S16(GT_S16 a, GT_S16 b)
+{
+	return a > b ? a : b;
+}
+
+
+
+
+
+
+        
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+tations > see l2s_polyspace_orange_items_gd2.doc */
+    result= input - tmp;
+    
+  return(result);    
+}
+
+/***************************************************************************//**
+  \brief  <b>Fixed point multiplication with saturation</b>
+  
+  <b>Component Functionality</b>                                                             \n
+    This software unit performs a multiplication of the two input signals with               \n
+	saturation to the minimum and maximum of signed 16 bit data type.                        \n
+
+  \req SC_9992 DOORS Baseline 4.46
+
+  <b>Control Flow:</b> 
+     <p><img src="../control_flow_diagrams/l2s_cop_lib.c-l2s_lib_mul_s16_s16_sr13_sat.png"></p>
+
+  <b>Calibration Parameters:</b>                                                             \n
+    - none                                                                                   \n
+
+      \param  in_value1            First input value  [S16 | En8 | n/a]
+      \param  in_value2            Second input value [S16 | En9 | n/a]
+      \return Saturated result value [S16 | En4 | n/a]
+
+*******************************************************************************/
+GT_S16 l2s_lib_mul_s16_s16_sr13_sat(GT_S16 in_value1, GT_S16 in_value2)
+{
+  /* Define local variables \n\n*/
+  GT_S32 tmp_prod;
+  GT_S16 tmp_return_val;
+
+  /* Calculate product of input 1 and input 2 with cast to S32 \n\n*/
+  tmp_prod = ((GT_S32)in_value1 * (GT_S32)in_value2);
+
+  /* Take scaling of En14 into account */
+  tmp_prod = tmp_prod / GT_BIN_EN13;
+
+  /* Calculated product >
+     S16 data type maximum? */
+  if (tmp_prod > GT_S16_MAX)
+  {
+    /* Set output to S16 data type maximum */
+    tmp_return_val = (GT_S16)GT_S16_MAX;
+  }
+  else
+  {
+    /* Calculated product <=
+       S16 data type minimum? */
+    if ( tmp_prod <= ((GT_S32)GT_S16_MIN) )
+    {
+      /* Set output to data type S16 minimum */
+      tmp_return_val = (GT_S16)GT_S16_MIN;
+    }
+    else
+    {
+      /* Cast calculated product
+         to S16 data type */
+      tmp_return_val = (GT_S16)tmp_prod;
+    }
+  }
+
+  /* Return result */
+  return (tmp_return_val);
+}
+
+/***************************************************************************//**
+  \brief  <b>S16 max(S16, S16)</b>
+
+  <b>Component Functionality</b>                                                             \n
+     return maximum of two S16
+
+  <b>Control Flow:</b>
+
+  <b>Calibration Parameters:</b>                                                             \n
+    - none                                                                                   \n
+
+      \param  in_value1            First input value  [S16 | n/a | n/a]
+      \param  in_value2            Second input value [S16 | n/a | n/a]
+      \return result value                            [S16 | n/a | n/a]
+
+*******************************************************************************/
+GT_S16 l2s_lib_maxS16S16S16(GT_S16 a, GT_S16 b)
+{
+	return a > b ? a : b;
+}
+
+
+
+
+
+
+        
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                           \n
+
+      \param  in_value1            First input value  [S16 | En8 | n/a]
+      \param  in_value2            Second input value [S16 | En9 | n/a]
+      \return Saturated result value [S16 | En4 | n/a]
+
+*******************************************************************************/
+GT_S16 l2s_lib_mul_s16_s16_sr13_sat(GT_S16 in_value1, GT_S16 in_value2)
+{
+  /* Define local variables \n\n*/
+  GT_S32 tmp_prod;
+  GT_S16 tmp_return_val;
+
+  /* Calculate product of input 1 and input 2 with cast to S32 \n\n*/
+  tmp_prod = ((GT_S32)in_value1 * (GT_S32)in_value2);
+
+  /* Take scaling of En14 into account */
+  tmp_prod = tmp_prod / GT_BIN_EN13;
+
+  /* Calculated product >
+     S16 data type maximum? */
+  if (tmp_prod > GT_S16_MAX)
+  {
+    /* Set output to S16 data type maximum */
+    tmp_return_val = (GT_S16)GT_S16_MAX;
+  }
+  else
+  {
+    /* Calculated product <=
+       S16 data type minimum? */
+    if ( tmp_prod <= ((GT_S32)GT_S16_MIN) )
+    {
+      /* Set output to data type S16 minimum */
+      tmp_return_val = (GT_S16)GT_S16_MIN;
+    }
+    else
+    {
+      /* Cast calculated product
+         to S16 data type */
+      tmp_return_val = (GT_S16)tmp_prod;
+    }
+  }
+
+  /* Return result */
+  return (tmp_return_val);
+}
+
+/***************************************************************************//**
+  \brief  <b>S16 max(S16, S16)</b>
+
+  <b>Component Functionality</b>                                                             \n
+     return maximum of two S16
+
+  <b>Control Flow:</b>
+
+  <b>Calibration Parameters:</b>                                                             \n
+    - none                                                                                   \n
+
+      \param  in_value1            First input value  [S16 | n/a | n/a]
+      \param  in_value2            Second input value [S16 | n/a | n/a]
+      \return result value                            [S16 | n/a | n/a]
+
+*******************************************************************************/
+GT_S16 l2s_lib_maxS16S16S16(GT_S16 a, GT_S16 b)
+{
+	return a > b ? a : b;
+}
+
+
+
+
+
+
+        
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+imum of signed 16 bit data type.                        \n
+
+  \req SC_9992 DOORS Baseline 4.46
+
+  <b>Control Flow:</b> 
+     <p><img src="../control_flow_diagrams/l2s_cop_lib.c-l2s_lib_mul_s16_s16_sr13_sat.png"></p>
+
+  <b>Calibration Parameters:</b>                                                             \n
+    - none                                                                                   \n
+
+      \param  in_value1            First input value  [S16 | En8 | n/a]
+      \param  in_value2            Second input value [S16 | En9 | n/a]
+      \return Saturated result value [S16 | En4 | n/a]
+
+*******************************************************************************/
+GT_S16 l2s_lib_mul_s16_s16_sr13_sat(GT_S16 in_value1, GT_S16 in_value2)
+{
+  /* Define local variables \n\n*/
+  GT_S32 tmp_prod;
+  GT_S16 tmp_return_val;
+
+  /* Calculate product of input 1 and input 2 with cast to S32 \n\n*/
+  tmp_prod = ((GT_S32)in_value1 * (GT_S32)in_value2);
+
+  /* Take scaling of En14 into account */
+  tmp_prod = tmp_prod / GT_BIN_EN13;
+
+  /* Calculated product >
+     S16 data type maximum? */
+  if (tmp_prod > GT_S16_MAX)
+  {
+    /* Set output to S16 data type maximum */
+    tmp_return_val = (GT_S16)GT_S16_MAX;
+  }
+  else
+  {
+    /* Calculated product <=
+       S16 data type minimum? */
+    if ( tmp_prod <= ((GT_S32)GT_S16_MIN) )
+    {
+      /* Set output to data type S16 minimum */
+      tmp_return_val = (GT_S16)GT_S16_MIN;
+    }
+    else
+    {
+      /* Cast calculated product
+         to S16 data type */
+      tmp_return_val = (GT_S16)tmp_prod;
+    }
+  }
+
+  /* Return result */
+  return (tmp_return_val);
+}
+
+/***************************************************************************//**
+  \brief  <b>S16 max(S16, S16)</b>
+
+  <b>Component Functionality</b>                                                             \n
+     return maximum of two S16
+
+  <b>Control Flow:</b>
+
+  <b>Calibration Parameters:</b>                                                             \n
+    - none                                                                                   \n
+
+      \param  in_value1            First input value  [S16 | n/a | n/a]
+      \param  in_value2            Second input value [S16 | n/a | n/a]
+      \return result value                            [S16 | n/a | n/a]
+
+*******************************************************************************/
+GT_S16 l2s_lib_maxS16S16S16(GT_S16 a, GT_S16 b)
+{
+	return a > b ? a : b;
+}
+
+
+
+
+
+
+        
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+od;
+    }
+  }
+
+  /* Return result */
+  return (tmp_return_val);
+}
+
+/***************************************************************************//**
+  \brief  <b>S16 max(S16, S16)</b>
+
+  <b>Component Functionality</b>                                                             \n
+     return maximum of two S16
+
+  <b>Control Flow:</b>
+
+  <b>Calibration Parameters:</b>                                                             \n
+    - none                                                                                   \n
+
+      \param  in_value1            First input value  [S16 | n/a | n/a]
+      \param  in_value2            Second input value [S16 | n/a | n/a]
+      \return result value                            [S16 | n/a | n/a]
+
+*******************************************************************************/
+GT_S16 l2s_lib_maxS16S16S16(GT_S16 a, GT_S16 b)
+{
+	return a > b ? a : b;
+}
+
+
+
+
+
+
+        
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+**
+  \brief  <b>S16 max(S16, S16)</b>
+
+  <b>Component Functionality</b>                                                             \n
+     return maximum of two S16
+
+  <b>Control Flow:</b>
+
+  <b>Calibration Parameters:</b>                                                             \n
+    - none                                                                                   \n
+
+      \param  in_value1            First input value  [S16 | n/a | n/a]
+      \param  in_value2            Second input value [S16 | n/a | n/a]
+      \return result value                            [S16 | n/a | n/a]
+
+*******************************************************************************/
+GT_S16 l2s_lib_maxS16S16S16(GT_S16 a, GT_S16 b)
+{
+	return a > b ? a : b;
+}
+
+
+
+
+
+
+        
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+******************************************************/
+GT_S16 l2s_lib_maxS16S16S16(GT_S16 a, GT_S16 b)
+{
+	return a > b ? a : b;
+}
+
+
+
+
+
+
+        
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                        \n
+     return maximum of two S16
+
+  <b>Control Flow:</b>
+
+  <b>Calibration Parameters:</b>                                                             \n
+    - none                                                                                   \n
+
+      \param  in_value1            First input value  [S16 | n/a | n/a]
+      \param  in_value2            Second input value [S16 | n/a | n/a]
+      \return result value                            [S16 | n/a | n/a]
+
+*******************************************************************************/
+GT_S16 l2s_lib_maxS16S16S16(GT_S16 a, GT_S16 b)
+{
+	return a > b ? a : b;
+}
+
+
+
+
+
+
+        
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Flow:</b>
+
+  <b>Calibration Parameters:</b>                                                             \n
+    - none                                                                                   \n
+
+      \param  in_value1            First input value  [S16 | n/a | n/a]
+      \param  in_value2            Second input value [S16 | n/a | n/a]
+      \return result value                            [S16 | n/a | n/a]
+
+*******************************************************************************/
+GT_S16 l2s_lib_maxS16S16S16(GT_S16 a, GT_S16 b)
+{
+	return a > b ? a : b;
+}
+
+
+
+
+
+
+        
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ol Flow:</b>
+
+  <b>Calibration Parameters:</b>                                                             \n
+    - none                                                                                   \n
+
+      \param  in_value1            First input value  [S16 | n/a | n/a]
+      \param  in_value2            Second input value [S16 | n/a | n/a]
+      \return result value                            [S16 | n/a | n/a]
+
+*******************************************************************************/
+GT_S16 l2s_lib_maxS16S16S16(GT_S16 a, GT_S16 b)
+{
+	return a > b ? a : b;
+}
+
+
+
+
+
+
+        
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                               \n
+
+      \param  in_value1            First input value  [S16 | n/a | n/a]
+      \param  in_value2            Second input value [S16 | n/a | n/a]
+      \return result value                            [S16 | n/a | n/a]
+
+*******************************************************************************/
+GT_S16 l2s_lib_maxS16S16S16(GT_S16 a, GT_S16 b)
+{
+	return a > b ? a : b;
+}
+
+
+
+
+
+
+        
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ibration Parameters:</b>                                                             \n
+    - none                                                                                   \n
+
+      \param  in_value1            First input value  [S16 | n/a | n/a]
+      \param  in_value2            Second input value [S16 | n/a | n/a]
+      \return result value                            [S16 | n/a | n/a]
+
+*******************************************************************************/
+GT_S16 l2s_lib_maxS16S16S16(GT_S16 a, GT_S16 b)
+{
+	return a > b ? a : b;
+}
+
+
+
+
+
+
+        
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                       \n
+
+      \param  in_value1            First input value  [S16 | n/a | n/a]
+      \param  in_value2            Second input value [S16 | n/a | n/a]
+      \return result value                            [S16 | n/a | n/a]
+
+*******************************************************************************/
+GT_S16 l2s_lib_maxS16S16S16(GT_S16 a, GT_S16 b)
+{
+	return a > b ? a : b;
+}
+
+
+
+
+
+
+        
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Cast calculated product
+         to S16 data type */
+      tmp_return_val = (GT_S16)tmp_prod;
+    }
+  }
+
+  /* Return result */
+  return (tmp_return_val);
+}
+
+/***************************************************************************//**
+  \brief  <b>S16 max(S16, S16)</b>
+
+  <b>Component Functionality</b>                                                             \n
+     return maximum of two S16
+
+  <b>Control Flow:</b>
+
+  <b>Calibration Parameters:</b>                                                             \n
+    - none                                                                                   \n
+
+      \param  in_value1            First input value  [S16 | n/a | n/a]
+      \param  in_value2            Second input value [S16 | n/a | n/a]
+      \return result value                            [S16 | n/a | n/a]
+
+*******************************************************************************/
+GT_S16 l2s_lib_maxS16S16S16(GT_S16 a, GT_S16 b)
+{
+	return a > b ? a : b;
+}
+
+
+
+
+
+
+        
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                    \n
+
+      \param  in_value1            First input value  [S16 | n/a | n/a]
+      \param  in_value2            Second input value [S16 | n/a | n/a]
+      \return result value                            [S16 | n/a | n/a]
+
+*******************************************************************************/
+GT_S16 l2s_lib_maxS16S16S16(GT_S16 a, GT_S16 b)
+{
+	return a > b ? a : b;
+}
+
+
+
+
+
+
+        
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ulated product
+         to S16 data type */
+      tmp_return_val = (GT_S16)tmp_prod;
+    }
+  }
+
+  /* Return result */
+  return (tmp_return_val);
+}
+
+/***************************************************************************//**
+  \brief  <b>S16 max(S16, S16)</b>
+
+  <b>Component Functionality</b>                                                             \n
+     return maximum of two S16
+
+  <b>Control Flow:</b>
+
+  <b>Calibration Parameters:</b>                                                             \n
+    - none                                                                                   \n
+
+      \param  in_value1            First input value  [S16 | n/a | n/a]
+      \param  in_value2            Second input value [S16 | n/a | n/a]
+      \return result value                            [S16 | n/a | n/a]
+
+*******************************************************************************/
+GT_S16 l2s_lib_maxS16S16S16(GT_S16 a, GT_S16 b)
+{
+	return a > b ? a : b;
+}
+
+
+
+
+
+
+        
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+to S16 data type */
+      tmp_return_val = (GT_S16)tmp_prod;
+    }
+  }
+
+  /* Return result */
+  return (tmp_return_val);
+}
+
+/***************************************************************************//**
+  \brief  <b>S16 max(S16, S16)</b>
+
+  <b>Component Functionality</b>                                                             \n
+     return maximum of two S16
+
+  <b>Control Flow:</b>
+
+  <b>Calibration Parameters:</b>                                                             \n
+    - none                                                                                   \n
+
+      \param  in_value1            First input value  [S16 | n/a | n/a]
+      \param  in_value2            Second input value [S16 | n/a | n/a]
+      \return result value                            [S16 | n/a | n/a]
+
+*******************************************************************************/
+GT_S16 l2s_lib_maxS16S16S16(GT_S16 a, GT_S16 b)
+{
+	return a > b ? a : b;
+}
+
+
+
+
+
+
+        
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ated product
+         to S16 data type */
+      tmp_return_val = (GT_S16)tmp_prod;
+    }
+  }
+
+  /* Return result */
+  return (tmp_return_val);
+}
+
+/***************************************************************************//**
+  \brief  <b>S16 max(S16, S16)</b>
+
+  <b>Component Functionality</b>                                                             \n
+     return maximum of two S16
+
+  <b>Control Flow:</b>
+
+  <b>Calibration Parameters:</b>                                                             \n
+    - none                                                                                   \n
+
+      \param  in_value1            First input value  [S16 | n/a | n/a]
+      \param  in_value2            Second input value [S16 | n/a | n/a]
+      \return result value                            [S16 | n/a | n/a]
+
+*******************************************************************************/
+GT_S16 l2s_lib_maxS16S16S16(GT_S16 a, GT_S16 b)
+{
+	return a > b ? a : b;
+}
+
+
+
+
+
+
+        
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      tmp_return_val = (GT_S16)tmp_prod;
+    }
+  }
+
+  /* Return result */
+  return (tmp_return_val);
+}
+
+/***************************************************************************//**
+  \brief  <b>S16 max(S16, S16)</b>
+
+  <b>Component Functionality</b>                                                             \n
+     return maximum of two S16
+
+  <b>Control Flow:</b>
+
+  <b>Calibration Parameters:</b>                                                             \n
+    - none                                                                                   \n
+
+      \param  in_value1            First input value  [S16 | n/a | n/a]
+      \param  in_value2            Second input value [S16 | n/a | n/a]
+      \return result value                            [S16 | n/a | n/a]
+
+*******************************************************************************/
+GT_S16 l2s_lib_maxS16S16S16(GT_S16 a, GT_S16 b)
+{
+	return a > b ? a : b;
+}
+
+
+
+
+
+
+        
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+d product
+         to S16 data type */
+      tmp_return_val = (GT_S16)tmp_prod;
+    }
+  }
+
+  /* Return result */
+  return (tmp_return_val);
+}
+
+/***************************************************************************//**
+  \brief  <b>S16 max(S16, S16)</b>
+
+  <b>Component Functionality</b>                                                             \n
+     return maximum of two S16
+
+  <b>Control Flow:</b>
+
+  <b>Calibration Parameters:</b>                                                             \n
+    - none                                                                                   \n
+
+      \param  in_value1            First input value  [S16 | n/a | n/a]
+      \param  in_value2            Second input value [S16 | n/a | n/a]
+      \return result value                            [S16 | n/a | n/a]
+
+*******************************************************************************/
+GT_S16 l2s_lib_maxS16S16S16(GT_S16 a, GT_S16 b)
+{
+	return a > b ? a : b;
+}
+
+
+
+
+
+
+        
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+p_return_val = (GT_S16)tmp_prod;
+    }
+  }
+
+  /* Return result */
+  return (tmp_return_val);
+}
+
+/***************************************************************************//**
+  \brief  <b>S16 max(S16, S16)</b>
+
+  <b>Component Functionality</b>                                                             \n
+     return maximum of two S16
+
+  <b>Control Flow:</b>
+
+  <b>Calibration Parameters:</b>                                                             \n
+    - none                                                                                   \n
+
+      \param  in_value1            First input value  [S16 | n/a | n/a]
+      \param  in_value2            Second input value [S16 | n/a | n/a]
+      \return result value                            [S16 | n/a | n/a]
+
+*******************************************************************************/
+GT_S16 l2s_lib_maxS16S16S16(GT_S16 a, GT_S16 b)
+{
+	return a > b ? a : b;
+}
+
+
+
+
+
+
+        
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ated product
+         to S16 data type */
+      tmp_return_val = (GT_S16)tmp_prod;
+    }
+  }
+
+  /* Return result */
+  return (tmp_return_val);
+}
+
+/***************************************************************************//**
+  \brief  <b>S16 max(S16, S16)</b>
+
+  <b>Component Functionality</b>                                                             \n
+     return maximum of two S16
+
+  <b>Control Flow:</b>
+
+  <b>Calibration Parameters:</b>                                                             \n
+    - none                                                                                   \n
+
+      \param  in_value1            First input value  [S16 | n/a | n/a]
+      \param  in_value2            Second input value [S16 | n/a | n/a]
+      \return result value                            [S16 | n/a | n/a]
+
+*******************************************************************************/
+GT_S16 l2s_lib_maxS16S16S16(GT_S16 a, GT_S16 b)
+{
+	return a > b ? a : b;
+}
+
+
+
+
+
+
+        
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ow:</b>
+
+  <b>Calibration Parameters:</b>                                                             \n
+    - none                                                                                   \n
+
+      \param  in_value1            First input value  [S16 | n/a | n/a]
+      \param  in_value2            Second input value [S16 | n/a | n/a]
+      \return result value                            [S16 | n/a | n/a]
+
+*******************************************************************************/
+GT_S16 l2s_lib_maxS16S16S16(GT_S16 a, GT_S16 b)
+{
+	return a > b ? a : b;
+}
+
+
+
+
+
+
+        
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ return (tmp_return_val);
+}
+
+/***************************************************************************//**
+  \brief  <b>S16 max(S16, S16)</b>
+
+  <b>Component Functionality</b>                                                             \n
+     return maximum of two S16
+
+  <b>Control Flow:</b>
+
+  <b>Calibration Parameters:</b>                                                             \n
+    - none                                                                                   \n
+
+      \param  in_value1            First input value  [S16 | n/a | n/a]
+      \param  in_value2            Second input value [S16 | n/a | n/a]
+      \return result value                            [S16 | n/a | n/a]
+
+*******************************************************************************/
+GT_S16 l2s_lib_maxS16S16S16(GT_S16 a, GT_S16 b)
+{
+	return a > b ? a : b;
+}
+
+
+
+
+
+
+        
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+return maximum of two S16
+
+  <b>Control Flow:</b>
+
+  <b>Calibration Parameters:</b>                                                             \n
+    - none                                                                                   \n
+
+      \param  in_value1            First input value  [S16 | n/a | n/a]
+      \param  in_value2            Second input value [S16 | n/a | n/a]
+      \return result value                            [S16 | n/a | n/a]
+
+*******************************************************************************/
+GT_S16 l2s_lib_maxS16S16S16(GT_S16 a, GT_S16 b)
+{
+	return a > b ? a : b;
+}
+
+
+
+
+
+
+        
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+t */
+  return (tmp_return_val);
+}
+
+/***************************************************************************//**
+  \brief  <b>S16 max(S16, S16)</b>
+
+  <b>Component Functionality</b>                                                             \n
+     return maximum of two S16
+
+  <b>Control Flow:</b>
+
+  <b>Calibration Parameters:</b>                                                             \n
+    - none                                                                                   \n
+
+      \param  in_value1            First input value  [S16 | n/a | n/a]
+      \param  in_value2            Second input value [S16 | n/a | n/a]
+      \return result value                            [S16 | n/a | n/a]
+
+*******************************************************************************/
+GT_S16 l2s_lib_maxS16S16S16(GT_S16 a, GT_S16 b)
+{
+	return a > b ? a : b;
+}
+
+
+
+
+
+
+        
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                                   \n
+
+      \param  in_value1            First input value  [S16 | n/a | n/a]
+      \param  in_value2            Second input value [S16 | n/a | n/a]
+      \return result value                            [S16 | n/a | n/a]
+
+*******************************************************************************/
+GT_S16 l2s_lib_maxS16S16S16(GT_S16 a, GT_S16 b)
+{
+	return a > b ? a : b;
+}
+
+
+
+
+
+
+        
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    \n
+     return maximum of two S16
+
+  <b>Control Flow:</b>
+
+  <b>Calibration Parameters:</b>                                                             \n
+    - none                                                                                   \n
+
+      \param  in_value1            First input value  [S16 | n/a | n/a]
+      \param  in_value2            Second input value [S16 | n/a | n/a]
+      \return result value                            [S16 | n/a | n/a]
+
+*******************************************************************************/
+GT_S16 l2s_lib_maxS16S16S16(GT_S16 a, GT_S16 b)
+{
+	return a > b ? a : b;
+}
+
+
+
+
+
+
+        
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      \param  in_value1            First input value  [S16 | n/a | n/a]
+      \param  in_value2            Second input value [S16 | n/a | n/a]
+      \return result value                            [S16 | n/a | n/a]
+
+*******************************************************************************/
+GT_S16 l2s_lib_maxS16S16S16(GT_S16 a, GT_S16 b)
+{
+	return a > b ? a : b;
+}
+
+
+
+
+
+
+        
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+

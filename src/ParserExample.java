@@ -1,7 +1,13 @@
 
+/* Location:           /media/Dados/Codigos/C_Plus/Projetos/eclipse-cdt-standalone-astparser/bin/
+ * Qualified Name:     ParserExample
+ * JD-Core Version:    0.6.0
+ */
 
-
+import java.io.IOException;
 import java.io.PrintStream;
+import java.io.RandomAccessFile;
+import java.nio.channels.FileChannel;
 import java.util.HashMap;
 import java.util.Map;
 import org.eclipse.cdt.core.dom.ast.ASTVisitor;
@@ -50,7 +56,33 @@ public class ParserExample
 	
   // use the classname for the logger, this way you can refactor
   private final static Logger logger = MyLogger.getLogger();
+  private static String newline = System.getProperty("line.separator");
+
+  // insert content to filename
+  // Ref: http://stackoverflow.com/questions/28913543/java-writing-to-a-file-with-specific-offset
+  private static void insert(String filename, long offset, String content) throws IOException {
 	  
+	  // Extract Bytes from content String
+	  byte[] contents = content.getBytes();
+	  
+	  RandomAccessFile r = new RandomAccessFile(filename, "rw");
+	  RandomAccessFile rtemp = new RandomAccessFile(filename+"Temp", "rw");
+	  long fileSize = r.length(); 
+	  FileChannel sourceChannel = r.getChannel();
+	  FileChannel targetChannel = rtemp.getChannel();
+	  sourceChannel.transferTo(offset, (fileSize - offset), targetChannel);
+	  sourceChannel.truncate(offset);
+	  r.seek(offset);
+	  r.write(contents);
+	  long newOffset = r.getFilePointer();
+	  targetChannel.position(0L);
+	  sourceChannel.transferFrom(targetChannel, newOffset, (fileSize - offset));
+	  sourceChannel.close();
+	  targetChannel.close();
+	  rtemp.close();
+	  r.close();
+  }
+  
   public static void main(String[] args)
     throws Exception
   {
@@ -58,7 +90,8 @@ public class ParserExample
 	  HashMap<Integer,Object> MockFunctionList = new HashMap();
 	  
 	 //Initialize Logger 
-	 MyLogger.setup();	  
+	 MyLogger.setup();
+	 
      //FileContent fileContent = FileContent.createForExternalFileLocation("/media/Dados/Codigos/Java/Projetos/OpenDevice/opendevice-hardware-libraries/arduino/OpenDevice/DeviceConnection.h");
 	  String FilePath;
 	  // Check that args is passed
@@ -131,28 +164,30 @@ public class ParserExample
      IASTDeclaration[] declarations = translationUnit.getDeclarations();
      for (IASTDeclaration declaration : declarations) {
     	 String FunctionCASTName = new String("");
+    	 
    	  	 HashMap<String,String> MockFunction = new HashMap();
-         logger.info("declaration - " + declaration.getRawSignature());
-         // Push Information to Map
-         MockFunction.put("declaration", declaration.getRawSignature());
-         MockFunction.put("File.Location", declaration.getFileLocation().getFileName());
-         MockFunction.put("File.Offset", String.valueOf(declaration.getFileLocation().getNodeOffset()));
-         MockFunction.put("File.Length", String.valueOf(declaration.getFileLocation().getNodeLength()));
-         MockFunction.put("File.StartingLine", String.valueOf(declaration.getFileLocation().getStartingLineNumber()));
-         MockFunction.put("File.EndingLine", String.valueOf(declaration.getFileLocation().getEndingLineNumber()));
+         logger.info("declaration: " + declaration + " ->  " + declaration.getRawSignature());
+         logger.info("-- Parent: " + declaration.getParent().getClass().getSimpleName());
+         logger.info("-- FileLocation: " + declaration.getFileLocation().asFileLocation());
+         logger.info("-- -- Offset: " + declaration.getFileLocation().getNodeOffset());
+         logger.info("-- -- Length: " + declaration.getFileLocation().getNodeLength());
+         logger.info("-- -- StartingLine: " + declaration.getFileLocation().getStartingLineNumber());
+         logger.info("-- -- EndingLine: " + declaration.getFileLocation().getEndingLineNumber());
          
-	   logger.info("declaration: " + declaration + " ->  " + declaration.getRawSignature());
-	   logger.info("-- Parent: " + declaration.getParent().getClass().getSimpleName());
-	   logger.info("-- FileLocation: " + declaration.getFileLocation().asFileLocation());
-	   logger.info("-- -- Offset: " + declaration.getFileLocation().getNodeOffset());
-	   logger.info("-- -- Length: " + declaration.getFileLocation().getNodeLength());
-	   logger.info("-- -- StartingLine: " + declaration.getFileLocation().getStartingLineNumber());
-	   logger.info("-- -- EndingLine: " + declaration.getFileLocation().getEndingLineNumber());
-	   
-	   for(IASTNode node : declaration.getChildren()) {
-		   if(node instanceof CASTFunctionDeclarator) {
-			   for(IASTNode subnode : node.getChildren()) {
-				   if(subnode instanceof CASTName) {
+         // Push MOCK-Preprocessor
+         for(IASTNode node : declaration.getChildren()) {
+        	 if(node instanceof CASTFunctionDeclarator) {
+        		 for(IASTNode subnode : node.getChildren()) {
+        			 if(subnode instanceof CASTName) {
+        			
+  					   // Push Information to Map
+  					   MockFunction.put("declaration", declaration.getRawSignature());
+					   MockFunction.put("File.Location", declaration.getFileLocation().getFileName());
+					   MockFunction.put("File.Offset", String.valueOf(declaration.getFileLocation().getNodeOffset()));
+					   MockFunction.put("File.Length", String.valueOf(declaration.getFileLocation().getNodeLength()));
+					   MockFunction.put("File.StartingLine", String.valueOf(declaration.getFileLocation().getStartingLineNumber()));
+					   MockFunction.put("File.EndingLine", String.valueOf(declaration.getFileLocation().getEndingLineNumber()));
+        		         
 					   logger.info("-- CASTName: " + subnode.getRawSignature());
 					   // Push 
 					   FunctionCASTName = subnode.getRawSignature();
@@ -164,10 +199,25 @@ public class ParserExample
 							   MockFunction.put("preprocessor", preprocessor.getRawSignature());
 						   }
 					   }
+					   // if Mock-preprocessor was not found
+					   if (!MockFunction.containsKey("preprocessor")) {
+						   // Insert End Mock-preprocessor
+						   insert(FilePath,(Integer.valueOf(MockFunction.get("File.Offset")) 
+								   + Integer.valueOf(MockFunction.get("File.Length")) ) 
+								   , newline + "#endif " + newline);
+						   // Insert Mock-preprocessor
+						   insert(FilePath,
+								   Integer.valueOf(MockFunction.get("File.Offset")), 
+								   newline + "#ifndef " + FunctionCASTName + "_MOCK" + newline);
+
+					   }
+					   // Push to MockFunctionList
+					   MockFunctionList.put(MockFunctionList.size()+1, MockFunction);
 				   }
+        		 }
 			   }
-		   }
-	   }     
+        	 }
+         }     
      
      //printTree(translationUnit, 1);
 
@@ -176,151 +226,19 @@ public class ParserExample
      logger.info("-----------------------------------------------------");
      logger.info("-----------------------------------------------------");
 
-     ASTVisitor visitor = new ASTVisitor()
-    {
-      public int visit(IASTName name)
-      {
-    	  if ((name.getParent() instanceof CPPASTFunctionDeclarator) || (name.getParent() instanceof CASTFunctionDeclarator)) {    	  
-            logger.info("-- IASTName: " + name.getClass().getSimpleName() + "(" + name.getRawSignature() + ")");
-            logger.info("-- isVisible: " + ParserExample.isVisible(name));
-        }
-        return 3;
-      }
-
-      public int visit(IASTDeclaration declaration)
-      {
-
-         if ((declaration instanceof IASTSimpleDeclaration)) {
-           /**
-           IASTSimpleDeclaration ast = (IASTSimpleDeclaration)declaration;
-          try
-          {
-             logger.info("--- type: " + ast.getSyntax() + " (childs: " + ast.getChildren().length + ")");
-             IASTNode typedef = ast.getChildren().length == 1 ? ast.getChildren()[0] : ast.getChildren()[1];
-             logger.info("------- typedef: " + typedef);
-             IASTNode[] children = typedef.getChildren();
-             if ((children != null) && (children.length > 0))
-               logger.info("------- typedef-name: " + children[0].getRawSignature());
-          }
-          catch (ExpansionOverlapsBoundaryException e)
-          {
-             e.printStackTrace();
-             logger.severe(e.toString());
-          }
-
-           IASTDeclarator[] declarators = ast.getDeclarators();
-           for (IASTDeclarator iastDeclarator : declarators) {
-             logger.info("iastDeclarator > " + iastDeclarator.getName());
-          }
-
-           IASTAttribute[] attributes = ast.getAttributes();
-           for (IASTAttribute iastAttribute : attributes) {
-             logger.info("iastAttribute > " + iastAttribute);
-          }
-          **/
-        }
-
-         if ((declaration instanceof IASTFunctionDefinition)) {
-		   logger.info("-----------------------------------------------------");
-		   logger.info("-----------------------------------------------------");
-		   logger.info("-----------------------------------------------------");    	  
-	       logger.info("declaration: " + declaration + " ->  " + declaration.getRawSignature());
-           logger.info("-- Parent: " + declaration.getParent().getClass().getSimpleName());
-           logger.info("-- FileLocation: " + declaration.getFileLocation());
-           logger.info("-- -- Offset: " + declaration.getFileLocation().getNodeOffset());
-           logger.info("-- -- Length: " + declaration.getFileLocation().getNodeLength());
-           logger.info("-- -- StartingLine: " + declaration.getFileLocation().getStartingLineNumber());
-           logger.info("-- -- EndingLine: " + declaration.getFileLocation().getEndingLineNumber());
-           
-           for(IASTNode node : declaration.getChildren()) {
-        	   if(node instanceof CASTFunctionDeclarator) {
-        		   for(IASTNode subnode : node.getChildren()) {
-        			   if(subnode instanceof CASTName) {
-        				   logger.info("-- CASTName: " + subnode.getRawSignature());        				   
-        			   }
-        		   }
-        	   }
-           }
-           IASTFunctionDefinition ast = (IASTFunctionDefinition)declaration;
-           IScope scope = ast.getScope();
-          /**
-          try
-          {
-             logger.info("### function() - Parent = " + scope.getParent().getScopeName());
-             logger.info("### function() - Syntax = " + ast.getSyntax());
-          }
-          catch (DOMException e) {
-             e.printStackTrace();
-          } catch (ExpansionOverlapsBoundaryException e) {
-             e.printStackTrace();
-          }
-           //ICPPASTFunctionDeclarator typedef = (ICPPASTFunctionDeclarator)ast.getDeclarator();
-           logger.info("------- typedef: " + ast.getDeclarator().getName());
-           **/
-        }
-
-         return 3;
-      }
-
-      public int visit(IASTTypeId typeId)
-      {
-         logger.info("--typeId: " + typeId.getRawSignature());
-         return 3;
-      }
-
-      public int visit(IASTStatement statement)
-      {
-         logger.info("--statement: " + statement.getRawSignature());
-         return 3;
-      }
-
-      public int visit(IASTAttribute attribute)
-      {
-    	 logger.info("--attribute: " + attribute.getRawSignature());
-         return 3;
-      }
-  	
-      public int visit(ICPPASTDecltypeSpecifier decltypeSpecifier)
-      {
-    	 logger.info("--decltypeSpecifier: " + decltypeSpecifier.getRawSignature());
-         return 3;
-      }
-      
-      public int visit(IASTDeclarator declarator) 
-      {
-		  if(declarator instanceof CASTFunctionDeclarator) {
-			  logger.info("--declarator: " + declarator.getRawSignature());
-		  }
-         return 3;    	  
-      }
-      
-      public int visit(IASTToken token)
-      {
-    	 logger.info("--token: " + token.getRawSignature());
-         return 3;
-      }
-
-      public int visit(IASTParameterDeclaration parameterDeclaration)
-      {
-    	 logger.info("--parameterDeclaration: " + parameterDeclaration.getRawSignature());
-         return 3;
-      }      
-                    
-      
-    };
+     /**
      visitor.shouldVisitNames = true;
-     
      visitor.shouldVisitDeclarations = true;
      visitor.shouldVisitDeclarators = false;
      visitor.shouldVisitDeclSpecifiers = false;
      visitor.shouldVisitTokens = false;
-     
      visitor.shouldVisitAttributes = false;
      visitor.shouldVisitStatements = false;
      visitor.shouldVisitTypeIds = false;
      visitor.shouldVisitParameterDeclarations = false;
-
-     translationUnit.accept(visitor);
+     //translationUnit.accept(visitor);
+      * 
+      */
   }
 
   
@@ -354,18 +272,5 @@ public class ParserExample
        printTree(iastNode, index + 1);
   }
 
-  public static boolean isVisible(IASTNode current)
-  {
-     IASTNode declator = current.getParent().getParent();
-     IASTNode[] children = declator.getChildren();
-
-     for (IASTNode iastNode : children) {
-       if ((iastNode instanceof ICPPASTVisibilityLabel)) {
-         return 1 == ((ICPPASTVisibilityLabel)iastNode).getVisibility();
-      }
-    }
-
-     return false;
-  }
 }
 
