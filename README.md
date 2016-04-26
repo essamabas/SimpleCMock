@@ -1,4 +1,4 @@
-SimpleCMoch
+SimpleCMock
 ========
 
 The code attach #ifndef %function_name%_MOCK before each function - to enable simple Mocking for C-Unit Testing
