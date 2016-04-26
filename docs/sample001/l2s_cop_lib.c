@@ -1,123 +1,11 @@
-/********************************************************************************
-**
-**  CONFIDENTIAL - GETRAG Getriebe- und Zahnradfabrik
-**                 Hermann Hagenmeyer GmbH & Cie KG
-** 
-**  this is an unpublished work, which is a trade secret, created in 2013.      
-**  GETRAG Getriebe- und Zahnradfabrik Hermann Hagenmeyer GmbH & Cie KG
-**  owns all rights to this work and intends to maintain it in confidence
-**  to preserve its trade secret status. GETRAG Getriebe- und Zahnradfabrik
-**  Hermann Hagenmeyer GmbH & Cie KG reserves the right to protect this work       
-**  as an unpublished copyrighted work in the event of an inadvertent or      
-**  deliberate unauthorized publication. GETRAG Getriebe- und Zahnradfabrik
-**  Hermann Hagenmeyer GmbH & Cie KG also reserves its rights under the copyright
-**  laws to protect this work as a published work. Those having access to this
-**  work may not copy it, use it or disclose the information contained in it
-**  without the written authorization of GETRAG Getriebe- und Zahnradfabrik
-**  Hermann Hagenmeyer GmbH & Cie KG.
-**
-*******************************************************************************/
 
-/***************************************************************************//**
-*
-*     \file            l2s_cop_lib.c
-*
-*     \author          Tim Weyres
-*
-*     \date            03.06.2013
-*
-*     \b Compiler:     Renesas V9.04
-*
-*     \b Description:  Level 2 software library functions for Core Platform
-*
-*                      The library comprise of following functions:          \n
-*                      l2s_lib_abs_s16_sat()                                 \n
-*                      l2s_lib_s16_sat()                                     \n
-*                      l2s_lib_s16_add_s16_s16_sat()                         \n
-*                      l2s_lib_s32_add_s32_s32_sat()                         \n
-*                      l2s_lib_s16_sub_s16_s16_sat()                         \n
-*                      l2s_lib_u16_add_u16_u16_sat()                         \n
-*                      l2s_lib_u16_sub_u16_u16_sat()                         \n
-*                      l2s_lib_div_u32u32()                                  \n
-*                      l2s_lib_div_s32s32()                                  \n
-*                      l2s_abs_s32()                                         \n
-*                      l2s_lib_idx_brkpt_srch()                              \n
-*                      l2s_lib_ipol_brkpt_srch()                             \n
-*                      l2s_lib_ipol_dim2_S16_S16()                           \n
-*                      l2s_lib_rolav_S16_S16()                               \n
-*                      l2s_lib_mul_s16_s16_sr13_sat()                        \n
-*                      l2s_lib_maxS16S16S16()                                \n
-*                                                                            \n 
-*******************************************************************************/
-
-
-/******************************************************************************
-*
-* $ProjectName: d:/MKS/Repository/GCG_PS_VP_150_DF/L2S_CORE.pj $
-*
-* $ProjectRevision: 1.33 $
-*
-* --------------------------------------------------------------------------
-* Modification History:
-* --------------------------------------------------------------------------
-* $Log: f_03/level2/lib/l2s_cop_lib.c  $
-* Revision 1.24 2015/06/19 11:56:32MESZ Harald.Schwindt 
-* TASK-920557: fix l2s_lib_rolav_S16_S16 and merge parallel version
-* -----------------------------------------------------------------
-* --- Added comments ---  Harald.Schwindt [2015/06/19 09:57:55Z]
-* Review passed / H.Schwindt, G.Dickers / Ref.: 1.23 & 1.23.1.1
-* -------------------------------------------------------------
-*    --------------+----------------+-----------------------------------------\n
-*    16. Jun 2015  | Guido Dickers  | -l2s_lib_idx_brkpt_srch and             \n
-*                  |                |  l2s_lib_ipol_brkpt_srch have a logic   \n
-*                  |                |  error within the loop for the index;   \n
-*                  |                |  correct it (Knot within brain)         \n
-*    --------------+----------------+-----------------------------------------\n
-*    13. May 2015  | H.Schwindt     | -justify polyspace warning; TASK-915676 \n
-*    --------------+----------------+-----------------------------------------\n
-*     8. Apr 2015  | Guido Dickers  | -eleminate MISRA warnings; TASK-915656  \n
-*    --------------+----------------+-----------------------------------------\n
-*    10. Mar 2015  | Tim Weyres     | -add function l2s_lib_s16_sat           \n
-*                  |                | -remove functions l2s_add_circular()    \n
-*                  |                |  and l2s_init_circular()                \n
-*    --------------+----------------+-----------------------------------------\n
-*    21. Nov 2014  | Guido Dickers  | -add requirement links (only comments)  \n
-*    --------------+----------------+-----------------------------------------\n
-*    21 Nov 2014   | Tim Weyres     | -add requirement links (only comments)  \n
-*    --------------+----------------+-----------------------------------------\n
-*     7 Nov 2013   | Guido Dickers  | -introduce first order low pass filter  \n
-*    --------------+----------------+-----------------------------------------\n
-*     9 Jul 2013   | Guido Dickers  | -introduce signed subtraction with      \n
-*                  |                |  saturation of S16                      \n
-*                  |                | -introduce abs with saturation of S16   \n
-*    --------------+----------------+-----------------------------------------\n
-*     8 Jul 2013   | Guido Dickers  | -introduce signed addition with         \n
-*                  |                |  saturation of S16                      \n
-*                  |                | -introduce unsigned addition with       \n
-*                  |                |  saturation of U16                      \n
-*                  |                | -introduce unsigned subtraction         \n
-*                  |                |  with saturation of U16                 \n
-*    --------------+----------------+-----------------------------------------\n
-*     5 Jul 2013   | Guido Dickers  | -modify breakpoint index search         \n
-*                  |                | -extend naming of interpolation         \n
-*                  |                |  functions                              \n
-*    --------------+----------------+-----------------------------------------\n 
-*    21 Jun 2013   | Guido Dickers  | -introduce two dimensional interpolation\n
-*                  |                |  function                               \n
-*                  |                | -introduce pure breakpoint search       \n
-*    --------------+----------------+-----------------------------------------\n
-*    03.06.2013    | Tim Weyres     | initial release                         \n
-*    --------------+----------------+-----------------------------------------\n
-
-*
-*******************************************************************************/
 
 /*******************************************************************************
 *
 *     Include Files
 *
 *******************************************************************************/
-#include "getrag_context.h"
+#include "g_context.h"
 #include "l2s_cop_lib.h"
 
 /*******************************************************************************
@@ -281,7 +169,7 @@ GT_U8 l2s_calc_crc8(GT_U8* start, GT_U32 size)
 
     for(i = 0; i < size; i++)
     {
-        /* polyspace<RTE: IDP : Not a defect : Justify with annotations > The address-of operator ‘&’ will never return a null pointer and the size-of-operator limits the access to the memory */
+        /* polyspace<RTE: IDP : Not a defect : Justify with annotations > The address-of operator Â‘&Â’ will never return a null pointer and the size-of-operator limits the access to the memory */
         crc = crc8table[crc ^ start[i]];
     }
     /* invert result */
@@ -330,7 +218,7 @@ GT_U16 l2s_calc_crc16(GT_U8* start, GT_U32 size)
 
     for(i = 0; i < size; i++)
     {
-        /* polyspace<RTE: IDP : Not a defect : Justify with annotations > The address-of operator ‘&’ will never return a null pointer and the size-of-operator limits the access to the memory */
+        /* polyspace<RTE: IDP : Not a defect : Justify with annotations > The address-of operator Â‘&Â’ will never return a null pointer and the size-of-operator limits the access to the memory */
         index = (GT_U8)(crc >> 8) ^ start[i];
         crc = crc16table[index] ^ (GT_U16)(crc << 8);
     }
